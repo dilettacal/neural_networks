@@ -5,6 +5,9 @@
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 
+*/train_img/*
+*/train_test/*
+
 # Remove previous ipynb_checkpoints
 #   git rm -r .ipynb_checkpoints/
 #
