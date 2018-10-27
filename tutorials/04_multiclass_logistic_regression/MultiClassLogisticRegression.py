@@ -1,6 +1,7 @@
 import numpy as np
 from scipy.special import expit
 from scipy.misc import imread
+import matplotlib.pyplot as plt
 
 """ Multiclass Logistic regression implementation for MNIST dataset"""
 
@@ -74,3 +75,18 @@ def predict(w,b, X_test, y_test):
     final_acc = np.mean(accuracies)
     return y_test_pred, accuracies, final_acc
 
+def predict_on_image(w,b,image):
+    image = imread(image)
+    #1. image shape == (28,28,3), 3 ist für Graustufen
+    #2. Eliminiere 3 durch
+    #image = np.mean(image, axis=2) --> image.shape: (28,28)
+    #3. reshape(1,-1) --> Ermittlung: 1 Zeile und 784 Werte drinnen (28*28)
+    #Durch -1 automatisch berechnet
+
+    #image = np.mean(image,axis=2).reshape(1,-1)
+    image = 255. - np.mean(image, axis=2).reshape(1, -1) #Farben sind jetzt umgedreht
+    plt.imshow(image.reshape(28,28))
+    plt.show()
+    y_test_pred = f(w,b,image)
+    y_test_pred = np.argmax(y_test_pred, axis=0)
+    return y_test_pred.T

@@ -30,12 +30,21 @@ lr = 0.00001
 w = np.zeros((10,784))
 b = np.ones(10)
 
-(costs, weights, bias) = mclr.train(w,b,X_train,y_train,lr, iterations=150)
+(costs, weights, bias) = mclr.train(w,b,X_train,y_train,lr, iterations=10)
 
 preds, accs, ff = mclr.predict(weights,bias, X_test, y_test)
 print("Model accuracy: ", ff)#ca 86% mit 100 Durchläufen
 
+"""
 plt.plot(accs)
 plt.ylabel("Accuracy %")
 plt.xlabel("Iterations")
 plt.show()
+"""
+
+print("Prediction on png image: ")
+img = "2-Versuch2.png"
+img2 = "eight.png"
+
+img_preds = mclr.predict_on_image(weights,bias,img)
+print(img_preds)
