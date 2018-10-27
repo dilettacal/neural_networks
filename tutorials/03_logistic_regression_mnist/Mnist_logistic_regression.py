@@ -53,7 +53,7 @@ b = 1 #Bias
 #Wenn man eine Null hat, dann ist die Steigung am groessten
 w = np.zeros((1, 784))
 """ Train model """
-(costs, weights, bias) = lrMNIST.train(w,b,X_train,y_train,lr, iterations=50)
+(costs, weights, bias) = lrMNIST.train(w,b,X_train,y_train,lr, iterations=150)
 
 """ Prediction on model """
 (y_test_pred, mean_pred) = lrMNIST.predict(w,b, X_test, y_test)
