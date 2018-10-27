@@ -1,0 +1,37 @@
+Neuronale Netze bestehen aus mehreren Knoten.
+In einem neuronalen Netz gibt es dazu mehrere Ebenen: Mehrere Knoten nebeneinander == mehrere Klassen
+
+Klassen == Prediction == Ausgänge
+In einem neuronalen Netz gibt es n Ausgänge. Zu jedem Input ist ein Gewicht assoziiert.
+
+b_j = Bias für Knoten j
+w_i_j = Gewicht von Eingang j des Knoten i (Stanford)
+
+
+Wie viele Ausgänge?
+Idee:
+- Jeder Ausgang entspricht einer Ziffer --> 10 verschiedene Ziffer
+- Beispiel für y-Werte:
+0 => [1 0 0 0 0 0 0 0 0 0]
+1 => [0 1 0 0 0 0 0 0 0 0]
+...
+
+Eine normale logistische Regression, die Bilder nach der Zahl 4 oder einer anderen Zahl einfach klassifizieren soll,
+entspricht der 5. Spalte (die Spalte der Werte für 4)
+
+Modelle trainiert man über die Spalten.
+Die Zeilen sind die Knotendarstellung (one hot encoding): Jeder Knoten ist sozusagen spezialisiert, die angegebene 0
+von allen anderen zu unterscheiden.
+
+Multiclass-Training liefert Wahrscheinlichkeiten:
+- Wahrscheinlichkeit, dass das Bild eine 0 enthält
+- Wahrscheinlichkeit, dass das Bild eine 1 enthält [...]
+
+Am Ende wählt man den Knoten, der eine höhere Wahrscheinlichkeit liefert.
+
+1. Labels konvertieren
+2. Jede Spalte ist ein zu trainierendes Modell
+3. One hot encoding --> OneHotEncoder aus sklearn funtkioniert nur für Zahlen
+3.1 Für weitere kategorischen Daten muss man was anderes verwenden
+
+
