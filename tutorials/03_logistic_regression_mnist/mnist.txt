@@ -1,0 +1,15 @@
+Handwritten digits database
+- Bilder --> Was für eine Zahl?
+- Datenanalyse
+- Modell trainiren
+- data/mnist/*.gz Files
+
+MNIST daten sind gleichmaessig verteilt: 10% sind Nullen, 10% Einsen usw.
+
+1. Standard logistische Regression
+- Arbeitet mit nur einer Klasse --> Klasse = 4, dann werden die Daten in Zahlen, die keine 4 sind und Zahlen die eine 4 sind
+- Zahlen, die eine 4 darstellen, sind ein 10%
+- Eine Genauigkeit des 90% beim Training ist nicht gut.
+- --> 90% sind keine 4
+- Nicht um eine 4: Genauigkeit von 90%
+- Problem: Unbalancierte Klassen!
