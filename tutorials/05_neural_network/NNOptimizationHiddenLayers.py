@@ -80,30 +80,25 @@ class NeuralNetwork(object):
         global_cost = np.mean(np.sum(s, axis=0))
         return global_cost
 
-#Train for different hidden layer sizes
-model = NeuralNetwork(0.1, 300)
-epochs = []
-costs = []
+sizes = [50, 100, 150, 200, 250, 300, 500]
 accs = []
-for i in range(0,100): #Epoche
-    for j in range(0, 60000, 1000):
-        #Gewichte aktualisiert, Kosten weiterfallen
-        model.train(X_train[j:(j+1000), :]/255., y_train_encoded[j:(j+1000), :])
+#Train for different hidden layer sizes
+for hidden_size in sizes : #wie viele Modelle
+    model = NeuralNetwork(0.1, hidden_size)
+    for i in range(0,30): #Epoche
+        for j in range(0, 60000, 1000):
+            #Gewichte aktualisiert, Kosten weiterfallen
+            model.train(X_train[j:(j+1000), :]/255., y_train_encoded[j:(j+1000), :])
 
-    #Kosten auf gesamten Datensatz
-    cost = model.cost(model.predict(X_train), y_train_encoded)
+        #Kosten auf gesamten Datensatz
+        #cost = model.cost(model.predict(X_train), y_train_encoded)
     y_test_pred = model.predict(X_test / 255.)  # (10,10000), 10000 Zahlen mit jeweils 10 Spalten (?)
     y_test_pred = np.argmax(y_test_pred, axis=0)
     acc = np.mean(y_test_pred == y_test)
-
-    epochs.append(i+1)
-    costs.append(cost)
     accs.append(acc)
-    print(acc)
+    print("Hidden size: " + str(hidden_size)+ "- Accuracy: " + str(acc))
 
-plt.plot(epochs, costs, label="Costs")
-plt.plot(epochs, accs, label="Accuracy")
-plt.legend()
-plt.title("Neural network - Learning Rate %.3f" %model.lr)
+plt.xlabel("Hidden size")
+plt.ylabel("Accuracy")
+plt.plot(sizes,accs)
 plt.show()
-
