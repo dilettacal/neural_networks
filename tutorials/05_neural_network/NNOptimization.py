@@ -81,11 +81,11 @@ class NeuralNetwork(object):
         return global_cost
 
 
-model = NeuralNetwork()
+model = NeuralNetwork(0.1)
 epochs = []
 costs = []
 accs = []
-for i in range(0,150): #Epoche
+for i in range(0,100): #Epoche
     for j in range(0, 60000, 1000):
         #Gewichte aktualisiert, Kosten weiterfallen
         model.train(X_train[j:(j+1000), :]/255., y_train_encoded[j:(j+1000), :])
@@ -104,5 +104,6 @@ for i in range(0,150): #Epoche
 plt.plot(epochs, costs, label="Costs")
 plt.plot(epochs, accs, label="Accuracy")
 plt.legend()
+plt.title("Neural network - Learning Rate %.3f" %model.lr)
 plt.show()
 
