@@ -107,6 +107,22 @@ for i in range(0,500): #Epoche
 
     print("Accuracy: ", acc)
 
+#Gewichte speichern
+with open("./weights/w0_.p", "wb") as file:
+    pickle.dump(model.w0, file)
+with open("./weights/w1_.p", "wb") as file:
+    pickle.dump(model.w1, file)
+
+
+#Oeffnen
+"""" 
+with open("./weights/w0_.p", "rb") as file:
+    model.w0 = pickle.load(file)
+
+with open("./weights/w1_.p", "rb") as file:
+    model.w1 = pickle.load(file)
+"""
+
 plt.plot(epochs, costs, label="Costs")
 plt.plot(epochs, accs, label="Accuracy")
 plt.legend()
