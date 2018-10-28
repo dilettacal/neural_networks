@@ -67,6 +67,15 @@ y_train = open_images(directory_path, train_labels, file_type='train_labels', le
 print(X_train[0].shape) #(784,) 784 Zeilen hintereinander
 print(X_train[0].reshape(28,28).shape) #(28,28)
 
-image = X_train[0].reshape(28,28)
-plt.imshow(np.roll(image,(4,5), axis=(0,1)))
+#image = X_train[0].reshape(28,28)
+#plt.imshow(np.roll(image,(4,5), axis=(0,1)))
+#plt.show()
+
+#Anwendung auf gesamtem Datensatz
+#(-1,28,28)
+#Dim0: Wie viele Bilder == 60000
+#Jedes Bild hat dim1 und dim2, wie viele Pixel für jedes Bild in der jeweiligen Dimension
+images = X_train.reshape(-1,28,28)
+images = np.roll(images, (3,3), axis=(1,2)) #Roll bezieht sich auf die Pixel
+plt.imshow(images[1])
 plt.show()
