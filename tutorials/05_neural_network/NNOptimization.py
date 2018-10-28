@@ -27,11 +27,11 @@ y_test= open_images(directory_path, test_labels, file_type='test_labels', level=
 
 
 class NeuralNetwork(object):
-    def __init__(self, lr = 0.01):
+    def __init__(self, lr = 0.01, hidden_size=100):
         #Keine pretrained Modelle
         #100 Knoten, 784 Verbindungen (pixel im Bild)
-        self.w0 = np.random.randn(100, 784)
-        self.w1 = np.random.randn(10,100)
+        self.w0 = np.random.randn(hidden_size, 784)
+        self.w1 = np.random.randn(10,hidden_size)
         self.lr = lr
 
     def activation(self, x):
@@ -81,7 +81,7 @@ class NeuralNetwork(object):
         return global_cost
 
 
-model = NeuralNetwork(0.1)
+model = NeuralNetwork(0.1, 300)
 epochs = []
 costs = []
 accs = []
