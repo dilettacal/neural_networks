@@ -1,0 +1,5 @@
+/.idea/*.xml
+/.idea/*.iml
+/Functions/.ipynb_checkpoints
+/task3_neural_networks_backprop/.ipynb_checkpoints
+/tutorials/03_logistic_regression_mnist/__pycache__
