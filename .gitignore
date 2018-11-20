@@ -1,9 +1,12 @@
 /.idea/*.xml
 /.idea/*.iml
-/Functions/.ipynb_checkpoints
+
 /task3_neural_networks_backprop/.ipynb_checkpoints
 /tutorials/03_logistic_regression_mnist/__pycache__
 /tutorials/04_multiclass_logistic_regression/__pycache__/*.pyc
 /tutorials/05_neural_network/.pytest_cache/v/cache/nodeids
 *.pyc
 *.gz
+
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
