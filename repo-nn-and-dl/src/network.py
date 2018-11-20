@@ -25,13 +25,15 @@ class Network(object):
         first layer containing 2 neurons, the second layer 3 neurons,
         and the third layer 1 neuron.  The biases and weights for the
         network are initialized randomly, using a Gaussian
-        distribution with mean 0, and variance 1.  Note that the first
+        distribution with mean 0, and variance 1.  
+        Note that the first
         layer is assumed to be an input layer, and by convention we
         won't set any biases for those neurons, since biases are only
         ever used in computing the outputs from later layers."""
         self.num_layers = len(sizes)
         self.sizes = sizes
         self.biases = [np.random.randn(y, 1) for y in sizes[1:]]
+        #only for layers after first layer
         self.weights = [np.random.randn(y, x)
                         for x, y in zip(sizes[:-1], sizes[1:])]
 
