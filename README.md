@@ -1,4 +1,4 @@
-# neural_networks
+# Neural networks basics
 
 This repository includes some code implemented during the winter semester 2018. 
 
